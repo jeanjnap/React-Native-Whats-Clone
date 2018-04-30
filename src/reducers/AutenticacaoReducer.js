@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-    nome: '',
+    nome: 'Teste',
     email: 'email@email.com',
     senha: '123456',
 }
