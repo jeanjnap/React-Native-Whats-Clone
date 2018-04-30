@@ -4,6 +4,7 @@ const INITIAL_STATE = {
     senha: '123456',
 }
 
-export default (state = INITIAL_STATE, actions) => {
+export default (state = INITIAL_STATE, action) => {
+    console.log(action);
     return state;
 };
