@@ -5,6 +5,15 @@ const INITIAL_STATE = {
 }
 
 export default (state = INITIAL_STATE, action) => {
-    console.log(action);
-    return state;
+
+    switch (action.type) {
+        case 'modifica_email':
+            return { ...state, email: action.payload }
+
+        case 'modifica_senha':
+            return { ...state, senha: action.payload }
+
+        default:
+            return state;
+    }
 };
