@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import firebase from 'firebase';
+import ReduxThunk from 'redux-thunk';
 
 import Routes from './Routes';
 import reducers from './reducers';
@@ -11,6 +12,7 @@ console.disableYellowBox = true;
 class App extends Component {
 
     componentWillMount() {
+
         firebase.initializeApp({
             apiKey: "AIzaSyBrVuAtFlsH6GZ9zewlqqK5iyzlDynZwes",
             authDomain: "whatsapp-clone-a1e00.firebaseapp.com",
@@ -23,7 +25,7 @@ class App extends Component {
 
     render() {
         return (
-            <Provider store={createStore(reducers)}>
+            <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
                 <Routes />
             </Provider>
         );
